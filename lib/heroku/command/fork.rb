@@ -1,4 +1,4 @@
-require "heroku/client/cisaurus"
+require "heroku/api/slugs"
 require "heroku/command/base"
 
 module Heroku::Command
@@ -23,6 +23,9 @@ module Heroku::Command
       if from == to
         raise Heroku::Command::CommandFailed.new("Cannot fork to the same app.")
       end
+
+      puts api.get_release_v3(from).body.inspect
+      return
 
       from_info = api.get_app(from).body
 
@@ -93,6 +96,7 @@ module Heroku::Command
 
       puts "Fork complete, view it at #{to_info['web_url']}"
     rescue Exception => e
+      raise e
       raise if e.is_a?(Heroku::Command::CommandFailed)
 
       puts "Failed to fork app #{from} to #{to}."
