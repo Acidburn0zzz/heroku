@@ -11,7 +11,8 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.2)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     arr-pm (0.0.7)
       cabin (> 0)
     aws-s3 (0.6.3)
@@ -42,6 +43,7 @@ GEM
     mime-types (1.21)
     multi_json (1.10.1)
     netrc (0.7.7)
+    public_suffix (4.0.6)
     rake (10.0.3)
     rest-client (1.6.7)
       mime-types (>= 1.16)
